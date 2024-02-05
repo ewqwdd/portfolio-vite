@@ -1,0 +1,36 @@
+body {
+  font-family: 'Kanit', sans-serif;
+}
+
+.starFast {
+  animation: starAnim 0.5s ease-in-out infinite;
+}
+
+.star {
+  animation: starAnim 1s ease-in-out infinite;
+}
+
+.starSlow {
+  animation: starAnim 1.5s ease-in-out infinite;
+}
+
+.starSuperSlow {
+  animation: starAnim 2s ease-in-out infinite;
+}
+
+@keyframes starAnim {
+  0% {
+    opacity: 0.45;
+    scale: 1;
+  }
+
+  50% {
+    opacity: 0.25;
+    scale: 0.84;
+  }
+
+  100% {
+    opacity: 0.55;
+    scale: 1;
+  }
+}

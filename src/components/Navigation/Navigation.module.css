@@ -1,0 +1,25 @@
+.link {
+    position: relative;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+}
+.link.active {
+    cursor: default;
+}
+.link.active, .link:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.link::after {
+    content: "";
+    width: 52px;
+    height: 2px;
+    display: inline-block;
+    transition: 0.15s ease-in-out;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.link:hover:after, .link.active::after  {
+    width: 82px;
+    background: rgba(255, 255, 255, 1);
+}

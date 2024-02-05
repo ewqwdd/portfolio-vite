@@ -1,0 +1,22 @@
+.link {
+    display: flex;
+    align-items: center;
+}
+
+.link:hover .icon {
+    animation: spin 1s ease-in-out infinite;
+}
+
+
+
+@keyframes spin {
+    0% {
+        rotate: 0deg;
+    }
+    50% {
+        rotate: 20deg;
+    }
+    100% {
+        rotate: 0deg;
+    }
+}

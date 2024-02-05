@@ -1,0 +1,36 @@
+.link {
+    transition-delay: 0.15s;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-in-out;
+    animation: switchBack 0.15s ease-in-out;
+}
+
+.parent:hover .link {
+    animation: switch 0.15s ease-in-out;
+    translate: 6px -6px;
+}
+
+@keyframes switch {
+    0% {
+        color: rgb(255, 255, 255)
+    }
+    100% {
+        color: rgb(16 185 129);
+    }
+}
+
+@keyframes switchBack {
+    0% {
+        color: rgb(16 185 129);
+    }
+    100% {
+        color: rgb(255, 255, 255)
+    }
+}
+
+@media (max-width: 1024px) {
+    .parent:hover .link {
+        animation: switch 0.15s ease-in-out;
+        translate: 3px -3px;
+    }
+}
