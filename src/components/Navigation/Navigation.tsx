@@ -13,7 +13,7 @@ const links: NavLink[] = [
     label: "ABOUT",
   },
   {
-    href: 0.3,
+    href: 0.2,
     label: "SKILLS",
   },
   {
@@ -21,17 +21,10 @@ const links: NavLink[] = [
     label: "PROJECTS",
   },
   {
-    href: 1.1,
+    href: 0.9,
     label: "CONTACT",
   },
 ];
-
-const sections: number[] = [
-  900,
-  400,
-  290, 
-  0,
-]
 
 interface NavigationProps {
   goTo: (num: number) => () => void
@@ -44,7 +37,12 @@ export default function Navigation({goTo, entity}: NavigationProps) {
   useEffect(() => {
     const handleScroll = () => {
       const current = entity.current
-      const index = sections.length - sections.findIndex(elem => elem <= current) - 1
+      const linksCopy = [...links]
+      linksCopy.reverse()
+      const position = current/window.innerHeight
+      console.log(linksCopy, position)
+      
+      const index = links.length - linksCopy.findIndex(elem => position >= elem.href) - 1
       setGlow(index)
     }
     document.getElementById('root')?.querySelectorAll('div')?.[0]?.addEventListener('scroll', handleScroll)
@@ -55,7 +53,7 @@ export default function Navigation({goTo, entity}: NavigationProps) {
   }, [entity])
   
   return (
-    <nav className="flex flex-col items-end mt-14 gap-[10px] text-right">
+    <nav className="flex flex-col items-end mt-[5svh] gap-[10px] text-right">
       {links.map((elem, index) => (
         <span
           key={index}

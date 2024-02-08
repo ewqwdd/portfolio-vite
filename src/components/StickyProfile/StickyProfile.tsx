@@ -1,61 +1,55 @@
-import Marquee from "react-fast-marquee";
 import Navigation from "../Navigation/Navigation";
-import React from "react";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Suspense } from "react";
 import { useScreen } from "../../lib/hooks/useScreen";
 import { IParallax } from "@react-spring/parallax";
-
-const config: { icon: string; label: string }[] = [
-  {
-    icon: "react_icon.svg",
-    label: "React",
-  },
-  {
-    icon: "nextjs_icon.svg",
-    label: "Next.js",
-  },
-  {
-    icon: "nestjs_icon.svg",
-    label: "Nest.js",
-  },
-  {
-    icon: "typescript_icon.svg",
-    label: "Typescript",
-  },
-];
+import Spinner from "../Spinner/Spinner";
+import ProfileMarqueAsync from "../ProfileMarque/ProfileMarque.async";
+import MarqueeLoader from "../ProfileMarque/MarqueeLoader";
+import PreviewSliderDesktopAsync from "../PreviewsSlider/PreviewSliderDesktop.async";
 
 interface StickyProfileProps {
-  goTo: (num: number) => () => void
-  entity: IParallax
+  goTo: (num: number) => () => void;
+  entity: IParallax;
 }
 
-export default function StickyProfile({goTo, entity}: StickyProfileProps) {
-  const width = useScreen();
+const SliderFallback = (<div className="mt-[3svh] flex justify-center items-center aspect-video max-[520px]:w-[84%] lg:max-h-[30svh] lg:!mr-0 w-full"><Spinner className="w-8 h-8" /></div>)
+
+export default function StickyProfile({ goTo, entity }: StickyProfileProps) {
+  const { width } = useScreen();
+  if (!width) {
+    return (
+      <Spinner className="w-48 h-48v absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2" />
+    );
+  }
   const margin = width >= 1310 ? (width - 1280) / 2 : 12;
   return (
-    <div className="pt-28" style={{
-        marginRight: margin
-    }}>
-      <h2 className="text-white/90 text-[32px] leading-none text-right">
-        Junior Fullstack developer
+    <div
+      className="pt-[10svh]"
+      style={{
+        marginRight: margin,
+      }}
+    >
+      <h2 className="text-white/90 text-h2Clamp leading-none text-right">
+        Fullstack developer
       </h2>
-      <h1 className="text-white text-[64px] font-bold text-right">
+      <h1 className="text-white text-h1Clamp font-bold text-right">
         Mykolai Skydan
       </h1>
-      <Marquee className="mt-2 overflow-y-hidden" autoFill>
-        {config.map((elem, index) => (
-          <React.Fragment key={index}>
-            <span className="gap-0.5 text-[24px] leading-none flex px-2 text-white/80">
-              <LazyLoadImage src={elem.icon} alt={elem.label} width={24} height={24} />
-              {elem.label}
-            </span>
-          </React.Fragment>
-        ))}
-      </Marquee>
-      <p className="text-[20px] leading-none text-white/60 mt-6 text-right font-normal animate-pulse">
+      <Suspense
+        fallback={
+         <MarqueeLoader />
+        }
+      >
+        <ProfileMarqueAsync />
+      </Suspense>
+      <p className="text-p20Clamp leading-none text-white/60 mt-6 text-right font-normal animate-pulse">
         Ready to translate ideas into code!
       </p>
       <Navigation goTo={goTo} entity={entity} />
+     
+      <Suspense fallback={SliderFallback}>
+        <PreviewSliderDesktopAsync />
+      </Suspense>
     </div>
   );
 }

@@ -1,21 +1,32 @@
 import { Fragment } from "react";
 import { useScreen } from "../../lib/hooks/useScreen";
 import { contactDetails, socials } from "./config";
-import styles from './Contact.module.css'
+import styles from "./Contact.module.css";
+import Spinner from "../Spinner/Spinner";
 
-export default function ContactSection() {
-  const width = useScreen();
+interface ContactSectionProps {
+  countWidth?: boolean
+}
+
+export default function ContactSection({countWidth}: ContactSectionProps) {
+  const { width } = useScreen();
+  if (!width) {
+    return (
+      <Spinner className="w-48 h-48v absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2" />
+    );
+  }
   const margin = width >= 1310 ? (width - 1280) / 2 : 12;
   return (
     <section
+      className="mt-[7svh] max-lg:px-3"
       id="Contact"
       style={{
-        marginLeft: margin,
+        marginLeft: countWidth ? margin : 0,
       }}
     >
-      <h2 className="text-[32px] font-bold">Contact information:</h2>
+      <h2 className="text-h2Clamp font-bold">Contact information:</h2>
       <div
-        className="inline-grid text-[20px] mt-4 ml-[32px] gap-x-6"
+        className="inline-grid text-p20Clamp mt-4 lg:ml-[32px] gap-x-6"
         style={{
           gridTemplateColumns: "auto 1fr",
         }}
@@ -36,11 +47,19 @@ export default function ContactSection() {
           </Fragment>
         ))}
       </div>
-      <div className="flex gap-4 ml-[32px] mt-10">
+      <div className="flex gap-4 lg:ml-[32px] mt-10">
         {socials.map((elem, index) => (
-            <a target="_blank" className={"text-white relative transition-all hover:text-emerald-300 after:bg-emerald-800 " + styles.social} href={elem.href} key={index}>
+          <a
+            target="_blank"
+            className={
+              "text-white relative transition-all hover:text-emerald-300 after:bg-emerald-800 " +
+              styles.social
+            }
+            href={elem.href}
+            key={index}
+          >
             {elem.icon}
-            </a>
+          </a>
         ))}
       </div>
     </section>

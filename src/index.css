@@ -3,10 +3,31 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background: black;
+}
 
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --swiper-navigation-size: 22px !important;
+  --swiper-theme-color: rgb(16 185 129) !important;
+}
+
+.swiper {
+  margin-right: 0 important;
+  width: 74% important;
+  aspect-ratio: 16/9 important;
+}
+
+.swiper-slide {
+  border-radius: 12px important;
+  background: rgba(0, 0, 0, 0.4) important;
+}
+
+.swiper-pagination-progressbar {
+  height: 6px !important;
 }

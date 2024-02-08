@@ -18,34 +18,30 @@ export const projects: Project[] = [
             'Nest.js',
             'DnD'
         ],
-        description: 'Cupidatat enim nostrud quis duis eu proident dolor est commodo eu cillum commodo exercitation. Veniam ut qui pariatur commodo cillum qui cillum elit.',
+        description: "I built this project with React and Nest.js, learning new things along the way. It was challenging, especially since it was my first time using Nest. The trickiest part was creating a chessboard and making drag-and-drop smooth for users. I also tried to optimize the project as much as possible with async components. Overall, it was good practice.",
         title: 'Chess Puzzles',
         href: 'https://tubular-kangaroo-cedb4e.netlify.app/'
     },
     {
-        image: '/projects/chess-puzzles.png',
+        image: '/projects/cloudstorage.png',
         tags: [
-            'React',
-            'Redux',
-            'Typescript',
+            'JWT',
             'Nest.js',
-            'DnD'
+            'Typescript',
+            'Next.js'
         ],
-        description: 'Cupidatat enim nostrud quis duis eu proident dolor est commodo eu cillum commodo exercitation. Veniam ut qui pariatur commodo cillum qui cillum elit.',
-        title: 'Chess Puzzles',
-        href: 'https://tubular-kangaroo-cedb4e.netlify.app/'
+        description: 'This app aimed to add JWT authorization with Next.js and Nest.js. The trickiest part was creating a selection box, without using any external libraries.',
+        title: 'SUPERCLOUD',
+        href: 'https://cloudstorage-frontend-ht0pa9qf5-ewqwdd.vercel.app/'
     },
     {
-        image: '/projects/chess-puzzles.png',
+        image: '/projects/metamorphix.png',
         tags: [
-            'React',
-            'Redux',
+            'Next.js',
             'Typescript',
-            'Nest.js',
-            'DnD'
         ],
-        description: 'Cupidatat enim nostrud quis duis eu proident dolor est commodo eu cillum commodo exercitation. Veniam ut qui pariatur commodo cillum qui cillum elit.',
-        title: 'Chess Puzzles',
-        href: 'https://tubular-kangaroo-cedb4e.netlify.app/'
+        description: "I worked on a freelance project – a website for a Discord server. I chose Next.js since there wasn't a need for a complicated backend. Looking back, I see I made some less-than-perfect decisions, but it was a learning experience. I've taken those lessons to heart and now avoid those mistakes in my current work.",
+        title: 'METAMORPHIX',
+        href: 'https://www.metamorphix.me/'
     }
 ]

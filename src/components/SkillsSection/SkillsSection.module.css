@@ -1,0 +1,15 @@
+.skill {
+    animation: borderAnim 2s ease-in-out infinite;
+}
+
+@keyframes borderAnim {
+    0% {
+        border-color: rgba(52, 211, 153, 1);
+    }
+    50% {
+        border-color: rgba(52, 211, 153, 0.3);
+    }
+    100% {
+        border-color: rgba(52, 211, 153, 1);
+    }
+}

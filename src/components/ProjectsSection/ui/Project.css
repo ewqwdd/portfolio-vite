@@ -10,6 +10,27 @@
     translate: 6px -6px;
 }
 
+.scrollCustom *::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+  
+.scrollCustom *::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.229);
+  }
+  
+.scrollCustom *::-webkit-scrollbar-thumb {
+    background-color: rgb(16 185 129);
+    border-radius: 6px;
+  }
+.scrollCustom::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+}
+
+.scrollCustom::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+}
+
 @keyframes switch {
     0% {
         color: rgb(255, 255, 255)

@@ -1,139 +1,39 @@
-import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { Suspense } from "react";
 import "./App.css";
-import BG from "./bg-long.jpg";
-import StickyProfile from "./components/StickyProfile/StickyProfile";
-import MarginWrapperFirstPage from "./components/MarginWrapperFirstPage/MarginWrapperFirstPage";
-import { ProjectSection } from "./components/ProjectsSection";
-import ContactSection from "./components/ContactSection/ContactSection";
-import {
-  MutableRefObject,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useScreen } from "./lib/hooks/useScreen";
+import MainDesktopAsync from "./pages/MainDesktop/MainDesktop.async";
+import MainTabletAsync from "./pages/MainTablet/MainTablet.async";
+import FacebookLoader from "./components/FacebookLoader/FacebookLoader";
+
+const loadingScreen = (
+  <div className="h-screen w-screen bg-emerald-600/10 flex flex-col justify-center items-center">
+    <div className="relative max-w-[520px]:text-[32px] text-h1Clamp bg-white/80 font-bold text-center">
+      <h1 className="text-emerald-600/10 z-10 absolute select-none">
+        Mykolai Skydan
+      </h1>
+      <h1 className="text-black">Mykolai Skydan</h1>
+    </div>
+    <FacebookLoader />
+  </div>
+);
 
 function App() {
-  const entity = useRef() as MutableRefObject<IParallax>;
-  const goTo = useCallback(
-    (num: number) => () => entity.current.scrollTo(num),
-    []
-  );
-  const [isMounted, setIsMounted] = useState<boolean>(false);
+  const { width } = useScreen();
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
+  if (!width) {
+    return loadingScreen;
+  }
+  if (width < 1024) {
+    return (
+      <Suspense fallback={loadingScreen}>
+        <MainTabletAsync />
+      </Suspense>
+    );
+  }
   return (
-    <>
-      <Parallax
-        ref={entity}
-        pages={2}
-        className="text-white/80"
-        style={{
-          maxHeight: window.innerHeight * 2.4,
-        }}
-      >
-        <ParallaxLayer
-          className="!bg-cover !bg-no-repeat !bg-center"
-          offset={0}
-          speed={1}
-          factor={3}
-          style={{
-            background: `url(${BG})`,
-          }}
-        />
-
-        <ParallaxLayer offset={0} factor={1} speed={1.5}>
-          <LazyLoadImage
-            src="/rocket.png"
-            className="h-28 blur-[1px] opacity-75 absolute top-[75%] left-[60%]"
-          />
-          <LazyLoadImage
-            src="/rocket.png"
-            className="h-20 blur-[2px] opacity-60 absolute top-[25%] left-[90%]"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={0.5}
-          factor={1.5}
-          speed={2}
-          className="pointer-events-none"
-        >
-          <LazyLoadImage
-            src="/light.png"
-            className="h-20 blur-[18px] absolute top-[75%] left-[60%] star"
-          />
-          <LazyLoadImage
-            src="/light.png"
-            className="h-64 blur-[12px] absolute top-[25%] left-[90%] starSlow"
-          />
-          <LazyLoadImage
-            src="/light.png"
-            className="h-48 blur-[22px] absolute top-[80%] left-[10%] starSuperSlow"
-          />
-          <LazyLoadImage
-            src="/light.png"
-            className="h-36 blur-[14px] absolute top-[20%] left-[30%] starSuperSlow"
-          />
-          <LazyLoadImage
-            src="/light.png"
-            className="h-10 blur-[8px] absolute top-[5%] left-[54%] star"
-          />
-          <LazyLoadImage
-            src="/light.png"
-            className="h-40 blur-[14px] absolute top-[0%] -translate-x-12 left-0 starSlow"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          sticky={{
-            start: 0,
-            end: 2.4,
-          }}
-          style={{
-            maxWidth: "50%",
-            marginLeft: "auto",
-          }}
-        >
-          <StickyProfile goTo={goTo} entity={entity.current} />
-        </ParallaxLayer>
-        <ParallaxLayer
-          offset={0}
-          factor={0.8}
-          speed={0.5}
-          style={{
-            maxWidth: "50%",
-          }}
-        >
-          <MarginWrapperFirstPage />
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={0.8}
-          factor={1}
-          speed={0.5}
-          style={{
-            maxWidth: "50%",
-          }}
-        >
-          <ProjectSection />
-        </ParallaxLayer>
-        <ParallaxLayer
-          offset={1.4}
-          factor={1}
-          speed={0.5}
-          style={{
-            maxWidth: "50%",
-          }}
-        >
-          <ContactSection />
-        </ParallaxLayer>
-      </Parallax>
-    </>
+    <Suspense fallback={loadingScreen}>
+      <MainDesktopAsync />
+    </Suspense>
   );
 }
 

@@ -18,6 +18,9 @@ body {
   animation: starAnim 2s ease-in-out infinite;
 }
 
+.clippedBg {
+}
+
 @keyframes starAnim {
   0% {
     opacity: 0.45;

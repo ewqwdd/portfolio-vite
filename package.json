@@ -16,6 +16,7 @@
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.3",
     "react-lazy-load-image-component": "^1.6.0",
+    "swiper": "^11.0.6",
     "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {

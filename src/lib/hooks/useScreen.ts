@@ -1,14 +1,4 @@
-import { useEffect, useState } from "react"
+import { useContext } from "react"
+import { screenContext } from "../../components/ScreenProvider"
 
-export const useScreen = () => {
-    const [width, setWidth] = useState(window?.innerWidth)
-    useEffect(() => {
-        const updWidth = () => {
-            setWidth(window.innerWidth)
-        }
-        window.addEventListener('resize', updWidth)
-
-        return () => window.removeEventListener('resize', updWidth)
-    })
-    return width
-}
+export const useScreen = () => useContext(screenContext)
