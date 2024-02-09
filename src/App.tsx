@@ -4,6 +4,7 @@ import { useScreen } from "./lib/hooks/useScreen";
 import MainDesktopAsync from "./pages/MainDesktop/MainDesktop.async";
 import MainTabletAsync from "./pages/MainTablet/MainTablet.async";
 import FacebookLoader from "./components/FacebookLoader/FacebookLoader";
+import MainMobileAsync from "./pages/MainMobile/MainMobile.async";
 
 const loadingScreen = (
   <div className="h-screen w-screen bg-emerald-600/10 flex flex-col justify-center items-center">
@@ -22,6 +23,14 @@ function App() {
 
   if (!width) {
     return loadingScreen;
+  }
+  
+  if (width < 520) {
+    return (
+      <Suspense fallback={loadingScreen}>
+        <MainMobileAsync />
+      </Suspense>
+    );
   }
   if (width < 1024) {
     return (
