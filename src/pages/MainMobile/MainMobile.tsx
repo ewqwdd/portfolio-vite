@@ -9,7 +9,7 @@ import Spinner from "../../components/Spinner/Spinner";
 import SkillsSectionMobileAsync from "../../components/SkillsSection/SkillsSectionMobile.async";
 import ContactSectionAsync from "../../components/ContactSection/ContactSection.async";
 import ContactSectionLoader from "../../components/ContactSection/ContactSectionLoader";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+// import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function MainMobile() {
   const { height } = useScreen();
@@ -29,7 +29,7 @@ export default function MainMobile() {
         maxHeight: window.innerHeight * 2.4,
       }}
     >
-        <LazyLoadImage
+        {/* <LazyLoadImage
           src="/light.png"
           className="h-20 blur-[18px] absolute top-[75%] left-[60%] star"
         />
@@ -44,7 +44,7 @@ export default function MainMobile() {
         <LazyLoadImage
           src="/light.png"
           className="h-40 blur-[14px] absolute top-[100%] -translate-x-12 left-0 starSlow"
-        />
+        /> */}
       <MobileProfile />
       <AboutSection />
       <Suspense
