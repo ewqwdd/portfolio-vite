@@ -53,31 +53,6 @@ export default function MainDesktop() {
           background: `url(${BG})`,
         }}
       />
-
-      <ParallaxLayer
-        offset={0.5}
-        factor={1.5}
-        speed={2}
-        className="pointer-events-none"
-      >
-        <LazyLoadImage
-          src="/light.png"
-          className="h-20 blur-[18px] absolute top-[75%] left-[60%] star"
-        />
-        <LazyLoadImage
-          src="/light.png"
-          className="h-48 blur-[22px] absolute top-[80%] left-[10%] starSuperSlow"
-        />
-        <LazyLoadImage
-          src="/light.png"
-          className="h-36 blur-[14px] absolute top-[20%] left-[30%] starSuperSlow"
-        />
-        <LazyLoadImage
-          src="/light.png"
-          className="h-10 blur-[8px] absolute top-[5%] left-[54%] star"
-        />
-      </ParallaxLayer>
-
       <ParallaxLayer offset={0} factor={0.4} speed={0.5}>
         <MobileProfile />
       </ParallaxLayer>
