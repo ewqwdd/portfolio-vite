@@ -32,7 +32,7 @@ export const projects: Project[] = [
         ],
         description: 'This app aimed to add JWT authorization with Next.js and Nest.js. The trickiest part was creating a selection box, without using any external libraries.',
         title: 'SUPERCLOUD',
-        href: 'https://cloudstorage-frontend-ht0pa9qf5-ewqwdd.vercel.app/'
+        href: 'https://cloudstorage-frontend-eosin.vercel.app/'
     },
     {
         image: '/projects/metamorphix.png',
