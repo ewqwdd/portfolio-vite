@@ -19,7 +19,7 @@ export default function StickyProfile() {
         <ProfileMarqueAsync />
       </Suspense>
       <Suspense fallback={SliderFallback}>
-        <PreviewSliderAsync className="max-w-[500px] max-h-[24svh]"/>
+        <PreviewSliderAsync className="max-w-[500px] max-h-[24svh]" mobile/>
       </Suspense>
       <p className="text-p20Clamp leading-none text-white/60 mt-6 text-center font-normal animate-pulse">
         Ready to translate ideas into code!

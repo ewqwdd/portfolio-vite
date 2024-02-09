@@ -13,14 +13,17 @@ import { Suspense } from 'react';
 import Spinner from '../Spinner/Spinner';
 import StorageSlideAsync from './slides/StorageSlide/StorageSlide.async';
 import { twMerge } from 'tailwind-merge';
+import ChessSlideMobileAsync from './slides/ChessSlideMobile/ChessSlideMobile.async';
+import StorageSlideMobileAsync from './slides/StorageSlideMobile/StorageSlideMobile.async';
 
 const fallback = (<div className='h-full w-full flex justify-center items-center'><Spinner /></div>)
 
 interface PreviewSliderProps {
   className?: string
+  mobile?: boolean
 }
 
-export default function PreviewSlider({className}: PreviewSliderProps) {
+export default function PreviewSlider({className, mobile}: PreviewSliderProps) {
   return (
     <Swiper
         grabCursor={true}
@@ -43,12 +46,12 @@ export default function PreviewSlider({className}: PreviewSliderProps) {
       >
         <SwiperSlide className=''>
           <Suspense fallback={fallback}>
-            <ChessSlideAsync />
+            {!mobile ? <ChessSlideAsync /> : <ChessSlideMobileAsync />}
           </Suspense>
         </SwiperSlide>
         <SwiperSlide>
         <Suspense fallback={fallback}>
-            <StorageSlideAsync />
+            {!mobile ? <StorageSlideAsync /> : <StorageSlideMobileAsync />}
           </Suspense>
         </SwiperSlide>
       </Swiper>
