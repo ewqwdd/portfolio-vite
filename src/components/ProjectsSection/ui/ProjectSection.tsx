@@ -8,6 +8,7 @@ import ProjectAsync from "./Project/Project.async";
 import ProjectLoader from "./Project/ProjectLoader";
 import ProjectSmallMobileAsync from "./ProjectSmallMobile/ProjectSmallMobile.asynct";
 import ProjectSmallLoader from "./ProjectSmallMobile/ProjectSmallLoader";
+import './Project.css'
 
 interface ProjectSectionProps {
   countWidth?: boolean;

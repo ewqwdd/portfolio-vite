@@ -9,7 +9,6 @@ import {
   useRef,
   useState,
 } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import MobileProfile from "../../components/MobileProfile/MobileProfile";
 import AboutSection from "../../components/AboutSection/AboutSection";
 import { useScreen } from "../../lib/hooks/useScreen";
