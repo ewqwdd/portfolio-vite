@@ -6,9 +6,10 @@ import Spinner from "../Spinner/Spinner";
 
 interface ContactSectionProps {
   countWidth?: boolean
+  oneLine?: boolean
 }
 
-export default function ContactSection({countWidth}: ContactSectionProps) {
+export default function ContactSection({countWidth, oneLine}: ContactSectionProps) {
   const { width } = useScreen();
   if (!width) {
     return (
@@ -22,9 +23,11 @@ export default function ContactSection({countWidth}: ContactSectionProps) {
       id="Contact"
       style={{
         marginLeft: countWidth ? margin : 0,
+        display: oneLine ? 'grid' : 'block',
+        gridTemplateColumns: "auto 1fr"
       }}
     >
-      <h2 className="text-h2Clamp font-bold">Contact information:</h2>
+      <h2 className="text-h2Clamp font-bold col-span-2">Contact information:</h2>
       <div
         className="inline-grid text-p20Clamp mt-4 lg:ml-[32px] gap-x-6"
         style={{
@@ -47,7 +50,9 @@ export default function ContactSection({countWidth}: ContactSectionProps) {
           </Fragment>
         ))}
       </div>
-      <div className="flex gap-4 lg:ml-[32px] mt-10">
+      <div className="flex gap-4 lg:ml-[32px] mt-10" style={{
+        margin: oneLine ? 'auto' : undefined
+      }}>
         {socials.map((elem, index) => (
           <a
             target="_blank"

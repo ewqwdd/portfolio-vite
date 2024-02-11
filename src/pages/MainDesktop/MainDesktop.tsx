@@ -15,6 +15,7 @@ import {
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import ContactSectionAsync from "../../components/ContactSection/ContactSection.async";
 import ContactSectionLoader from "../../components/ContactSection/ContactSectionLoader";
+import { useScreen } from "../../lib/hooks/useScreen";
 
 export default function MainDesktop() {
   const entity = useRef() as MutableRefObject<IParallax>;
@@ -23,6 +24,7 @@ export default function MainDesktop() {
     []
   );
   const [, setIsMounted] = useState<boolean>(false);
+  const { height } = useScreen();
 
   useEffect(() => {
     setIsMounted(true);
@@ -120,9 +122,9 @@ export default function MainDesktop() {
           maxWidth: "50%",
         }}
       >
-        <ProjectSection countWidth/>
+        <ProjectSection countWidth />
         <Suspense fallback={<ContactSectionLoader />}>
-          <ContactSectionAsync countWidth/>
+          <ContactSectionAsync countWidth oneLine={Number(height) < 720} />
         </Suspense>
       </ParallaxLayer>
     </Parallax>
