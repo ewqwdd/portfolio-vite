@@ -37,7 +37,7 @@ export const socials: SocialElement[] = [
     },
     {
         icon: <LinkedinIcon className="w-10 h-10" />,
-        href: 'https://www.linkedin.com/in/mykolai-skydan-9b963b278/'
+        href: 'https://www.linkedin.com/in/mykolai-skydan/'
     },
     {
         icon: <TelegramIcon className="w-10 h-10" />,
