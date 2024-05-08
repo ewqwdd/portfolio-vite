@@ -20,9 +20,7 @@ export default function ProjectMobile({
   let descriptionWrapper;
   if (typeof description === "string") {
     descriptionWrapper = (
-      <p className="lg:text-p20Clamp max-lg:text-p16Clamp max-[440px]:text-[13px] leading-tight font-light">
-        {description}
-      </p>
+      <p className="lg:text-p20Clamp max-lg:text-p16Clamp max-[440px]:text-[13px] leading-tight font-light" dangerouslySetInnerHTML={{__html: description}} />
     );
   } else {
     descriptionWrapper = (

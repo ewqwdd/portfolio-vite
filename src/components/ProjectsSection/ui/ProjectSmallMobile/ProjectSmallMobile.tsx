@@ -22,7 +22,7 @@ export default function ProjectSmallMobile({
   const { height } = useScreen();
   if (typeof description === "string") {
     descriptionWrapper = (
-      <p className="text-[13px] leading-tight font-light">{description}</p>
+      <p className="text-[13px] leading-tight font-light" dangerouslySetInnerHTML={{__html: description}} />
     );
   } else {
     descriptionWrapper = (

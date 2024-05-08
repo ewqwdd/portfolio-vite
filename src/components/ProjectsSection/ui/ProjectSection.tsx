@@ -32,7 +32,6 @@ export default function ProjectSection({ countWidth, mobile }: ProjectSectionPro
       .then((data) => {
         setProjects(data);
         setIsLoading(false);
-        console.log(data);
       })
       .catch((err) => {
         setError(err.message);
@@ -98,7 +97,7 @@ export default function ProjectSection({ countWidth, mobile }: ProjectSectionPro
             <Suspense key={index} fallback={<Loader />}>
               <Cmp
                 title={elem[0]}
-                description={elem[1].replace(";", ",")}
+                description={String(elem[1].replace(";", ",")).replace(/\{\}/g, '<br />')}
                 tags={elem[2].split(";")}
                 href={elem[3]}
                 image={elem[4]}

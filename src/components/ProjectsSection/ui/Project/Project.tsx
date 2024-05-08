@@ -21,7 +21,7 @@ export default function ProjectComp({
   let descriptionWrapper;
   if (typeof description === "string") {
     descriptionWrapper = (
-      <p className="text-p20Clamp leading-tight font-light max-h-full">{description}</p>
+      <p className="text-p20Clamp leading-tight font-light max-h-full" dangerouslySetInnerHTML={{__html: description}} />
     );
   } else {
     descriptionWrapper = (
