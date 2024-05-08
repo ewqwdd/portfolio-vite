@@ -1,7 +1,7 @@
 import { Suspense, useEffect, useState } from "react";
 import { useScreen } from "../../../lib/hooks/useScreen";
 import Spinner from "../../Spinner/Spinner";
-import { Project, ProjectFetched, fetchData } from "../model/config";
+import { ProjectFetched, fetchData } from "../model/config";
 import ProjectMobileAsync from "./ProjectMobile/ProjectMobile.async";
 import ProjectMobileLoader from "./ProjectMobile/ProjectMobileLoader";
 import ProjectAsync from "./Project/Project.async";
