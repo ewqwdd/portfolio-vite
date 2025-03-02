@@ -1,8 +1,8 @@
 import { createContext } from "react";
 
 interface ScreenContextSchema {
-    width?: number
-    height?: number
+  width?: number;
+  height?: number;
 }
 
-export const screenContext = createContext<ScreenContextSchema>({})
+export const screenContext = createContext<ScreenContextSchema>({});

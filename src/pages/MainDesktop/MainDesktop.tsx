@@ -3,7 +3,6 @@ import "../../App.css";
 import BG from "../../bg-long.jpg";
 import StickyProfile from "../../components/StickyProfile/StickyProfile";
 import MarginWrapperFirstPage from "../../components/MarginWrapperFirstPage/MarginWrapperFirstPage";
-import { ProjectSection } from "../../components/ProjectsSection";
 import {
   MutableRefObject,
   Suspense,
@@ -16,12 +15,14 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import ContactSectionAsync from "../../components/ContactSection/ContactSection.async";
 import ContactSectionLoader from "../../components/ContactSection/ContactSectionLoader";
 import { useScreen } from "../../lib/hooks/useScreen";
+import { ServiceIndustry } from "../../components/ServiceIndustry";
+import { CoopModel } from "../../components/CoopModel";
 
 export default function MainDesktop() {
   const entity = useRef() as MutableRefObject<IParallax>;
   const goTo = useCallback(
     (num: number) => () => entity.current.scrollTo(num + 0.01),
-    []
+    [],
   );
   const [, setIsMounted] = useState<boolean>(false);
   const { height } = useScreen();
@@ -115,14 +116,15 @@ export default function MainDesktop() {
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={0.8}
+        offset={0.9}
         factor={2}
         speed={0.5}
         style={{
           maxWidth: "50%",
         }}
       >
-        <ProjectSection countWidth />
+        <ServiceIndustry countWidth />
+        <CoopModel countWidth />
         <Suspense fallback={<ContactSectionLoader />}>
           <ContactSectionAsync countWidth oneLine={Number(height) < 720} />
         </Suspense>

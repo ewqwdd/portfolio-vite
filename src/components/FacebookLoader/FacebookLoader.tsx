@@ -1,11 +1,15 @@
-import styles from './FacebookLoader.module.css'
+import styles from "./FacebookLoader.module.css";
 
 interface FacebookLoaderProps {
-    className?: string
+  className?: string;
 }
 
-export default function FacebookLoader({className}: FacebookLoaderProps) {
+export default function FacebookLoader({ className }: FacebookLoaderProps) {
   return (
-    <div className={styles['lds-facebook'] + ' ' + className}><div></div><div></div><div></div></div>
-  )
+    <div className={styles["lds-facebook"] + " " + className}>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  );
 }

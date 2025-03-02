@@ -1,5 +1,5 @@
 import { lazy } from "react";
 
-const ChessSlideAsync = lazy(async() => await import('./ChessSlide'))
+const ChessSlideAsync = lazy(async () => await import("./ChessSlide"));
 
-export default ChessSlideAsync
+export default ChessSlideAsync;

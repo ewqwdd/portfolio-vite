@@ -1,12 +1,7 @@
 import AboutSection from "../AboutSection/AboutSection";
 import { useScreen } from "../../lib/hooks/useScreen";
 import Spinner from "../Spinner/Spinner";
-import SkillsSectionAsync from "../SkillsSection/SkillsSection.async";
-import { Suspense } from "react";
-
-const SkillsLoader = (
-  <div className="bg-black/30 animate-pulse rounded-lg w-full max-[1446px]:h-56 h-40" />
-);
+import ConsultationSection from "../ConsultationSection/ConsultationSection";
 
 export default function MarginWrapperFirstPage() {
   const { width } = useScreen();
@@ -19,9 +14,7 @@ export default function MarginWrapperFirstPage() {
   return (
     <>
       <AboutSection margin={margin} />
-      <Suspense fallback={SkillsLoader}>
-        <SkillsSectionAsync margin={margin} />
-      </Suspense>
+      <ConsultationSection margin={margin} />
     </>
   );
 }

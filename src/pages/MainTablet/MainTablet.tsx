@@ -1,22 +1,17 @@
 import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import "../../App.css";
 import BG from "../../bg-long.jpg";
-import { ProjectSection } from "../../components/ProjectsSection";
-import {
-  MutableRefObject,
-  Suspense,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { MutableRefObject, Suspense, useEffect, useRef, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import MobileProfile from "../../components/MobileProfile/MobileProfile";
 import AboutSection from "../../components/AboutSection/AboutSection";
 import { useScreen } from "../../lib/hooks/useScreen";
 import Spinner from "../../components/Spinner/Spinner";
-import SkillsSectionMobileAsync from "../../components/SkillsSection/SkillsSectionMobile.async";
 import ContactSectionAsync from "../../components/ContactSection/ContactSection.async";
 import ContactSectionLoader from "../../components/ContactSection/ContactSectionLoader";
+import ConsultationSection from "../../components/ConsultationSection/ConsultationSection";
+import { ServiceIndustry } from "../../components/ServiceIndustry";
+import { CoopModel } from "../../components/CoopModel";
 
 export default function MainDesktop() {
   const { height } = useScreen();
@@ -34,7 +29,6 @@ export default function MainDesktop() {
       </div>
     );
   }
-  const marginTop = height < 800 ? (height * 0.10 >= 40 ? 40 : height * 0.10) : height * 0.01
   return (
     <Parallax
       ref={entity}
@@ -100,23 +94,22 @@ export default function MainDesktop() {
       <ParallaxLayer offset={0} factor={0.4} speed={0.5}>
         <MobileProfile />
       </ParallaxLayer>
-      <ParallaxLayer offset={0.5} factor={0.8} speed={0.5}>
+      <ParallaxLayer offset={0.5} factor={0.8} speed={0.5} className="px-10">
         <AboutSection />
-        <Suspense fallback={<div className="h-16 w-full bg-black/40 animate-pulse" />}>
-          <SkillsSectionMobileAsync />
-        </Suspense>
+        <ConsultationSection />
       </ParallaxLayer>
 
       <ParallaxLayer
         offset={0.99}
         factor={1.4}
         speed={0.5}
-        className="flex flex-col"
+        className="flex flex-col px-10"
         style={{
-          marginTop,
+          marginTop: 100,
         }}
       >
-        <ProjectSection mobile />
+        <ServiceIndustry />
+        <CoopModel />
         <Suspense fallback={<ContactSectionLoader />}>
           <ContactSectionAsync />
         </Suspense>

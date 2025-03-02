@@ -1,15 +1,15 @@
 import "../../App.css";
 import BG from "../../bg-long.jpg";
-import { ProjectSection } from "../../components/ProjectsSection";
-import {Suspense } from "react";
+import { Suspense } from "react";
 import MobileProfile from "../../components/MobileProfile/MobileProfile";
 import AboutSection from "../../components/AboutSection/AboutSection";
 import { useScreen } from "../../lib/hooks/useScreen";
 import Spinner from "../../components/Spinner/Spinner";
-import SkillsSectionMobileAsync from "../../components/SkillsSection/SkillsSectionMobile.async";
 import ContactSectionAsync from "../../components/ContactSection/ContactSection.async";
 import ContactSectionLoader from "../../components/ContactSection/ContactSectionLoader";
-// import { LazyLoadImage } from "react-lazy-load-image-component";
+import ConsultationSection from "../../components/ConsultationSection/ConsultationSection";
+import { CoopModel } from "../../components/CoopModel";
+import { ServiceIndustry } from "../../components/ServiceIndustry";
 
 export default function MainMobile() {
   const { height } = useScreen();
@@ -29,31 +29,12 @@ export default function MainMobile() {
         maxHeight: window.innerHeight * 2.4,
       }}
     >
-        {/* <LazyLoadImage
-          src="/light.png"
-          className="h-20 blur-[18px] absolute top-[75%] left-[60%] star"
-        />
-        <LazyLoadImage
-          src="/light.png"
-          className="h-36 blur-[14px] absolute top-[20%] left-[30%] starSuperSlow"
-        />
-        <LazyLoadImage
-          src="/light.png"
-          className="h-10 blur-[8px] absolute top-[50%] left-[54%] star"
-        />
-        <LazyLoadImage
-          src="/light.png"
-          className="h-40 blur-[14px] absolute top-[100%] -translate-x-12 left-0 starSlow"
-        /> */}
       <MobileProfile />
       <AboutSection />
-      <Suspense
-        fallback={<div className="h-16 w-full bg-black/40 animate-pulse" />}
-      >
-        <SkillsSectionMobileAsync />
-      </Suspense>
+      <ConsultationSection />
 
-      <ProjectSection mobile />
+      <ServiceIndustry />
+      <CoopModel />
       <Suspense fallback={<ContactSectionLoader />}>
         <ContactSectionAsync />
       </Suspense>

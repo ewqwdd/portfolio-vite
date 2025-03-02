@@ -1,5 +1,7 @@
 import { lazy } from "react";
 
-const PreviewSliderDesktopAsync = lazy(async() => await import('./PreviewSliderDesktop'))
+const PreviewSliderDesktopAsync = lazy(
+  async () => await import("./PreviewSliderDesktop"),
+);
 
-export default PreviewSliderDesktopAsync
+export default PreviewSliderDesktopAsync;

@@ -1,5 +1,5 @@
 import { lazy } from "react";
 
-const MainMobileAsync = lazy(async() => await import('./MainMobile'))
+const MainMobileAsync = lazy(async () => await import("./MainMobile"));
 
-export default MainMobileAsync
+export default MainMobileAsync;

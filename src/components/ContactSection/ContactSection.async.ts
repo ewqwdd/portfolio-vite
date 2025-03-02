@@ -1,5 +1,5 @@
 import { lazy } from "react";
 
-const ContactSectionAsync = lazy(async() => await import('./ContactSection'))
+const ContactSectionAsync = lazy(async () => await import("./ContactSection"));
 
-export default ContactSectionAsync
+export default ContactSectionAsync;
