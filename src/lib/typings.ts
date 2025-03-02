@@ -1,5 +1,5 @@
 export const typings = {
-  heading: "ZOONDA",
+  heading: "ZONNDA",
   subHeading: "Інноваційні рішення в розробці програмного забезпечення",
   types: "Підприємства • Бізнес • Стартапи",
 };

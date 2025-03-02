@@ -9,8 +9,8 @@ import MainMobileAsync from "./pages/MainMobile/MainMobile.async";
 const loadingScreen = (
   <div className="h-screen w-screen bg-emerald-600/10 flex flex-col justify-center items-center">
     <div className="relative max-w-[520px]:text-[32px] text-h1Clamp bg-white/80 font-bold text-center">
-      <h1 className="text-emerald-600/10 z-10 absolute select-none">ZOONDA</h1>
-      <h1 className="text-black">ZOONDA</h1>
+      <h1 className="text-emerald-600/10 z-10 absolute select-none">ZONNDA</h1>
+      <h1 className="text-black">ZONNDA</h1>
     </div>
     <FacebookLoader />
   </div>
