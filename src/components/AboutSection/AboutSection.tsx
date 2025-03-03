@@ -12,7 +12,7 @@ export default function AboutSection({ margin }: AboutSectionProps) {
       }}
     >
       <h2 className="text-h2Clamp font-bold">Ласкаво просимо до Zonnda</h2>
-      <p className="text-p20Clamp max-[520px]:text-p16Clamp leading-snug font-extralight mt-2 lg:mt-4">
+      <p className="text-p20Clamp max-[520px]:text-p16Clamp leading-snug font-extralight mt-2 lg:mt-4 max-lg:text-p16Clamp">
         Ласкаво просимо до Zonnda - вашого надійного партнера у світі технологій
         та інновацій. Ми - провідна IT-компанія, яка обслуговує найбільшу
         юридичну компанію України, забезпечуючи високоякісні та сучасні рішення

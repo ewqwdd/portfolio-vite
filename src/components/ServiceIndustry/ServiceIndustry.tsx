@@ -4,6 +4,11 @@ import { useScreen } from "../../lib/hooks/useScreen";
 import Spinner from "../Spinner/Spinner";
 import { useRef, useState } from "react";
 
+import "swiper/css";
+import "swiper/css/effect-creative";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 interface ServiceSlide {
   label: string;
   img?: string;
@@ -91,7 +96,7 @@ export default function ServiceIndustry({ countWidth }: ServiceIndustryProps) {
             <img
               src={service.img}
               alt={service.label}
-              className="aspect-video bg-black/20 rounded-md"
+              className="aspect-video bg-black/20 rounded-md w-full"
             />
           </SwiperSlide>
         ))}

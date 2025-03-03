@@ -32,7 +32,7 @@ export default function MainDesktop() {
   return (
     <Parallax
       ref={entity}
-      pages={2}
+      pages={2.5}
       className="text-white/80"
       style={{
         maxHeight: window.innerHeight * 2.4,
@@ -94,13 +94,18 @@ export default function MainDesktop() {
       <ParallaxLayer offset={0} factor={0.4} speed={0.5}>
         <MobileProfile />
       </ParallaxLayer>
-      <ParallaxLayer offset={0.5} factor={0.8} speed={0.5} className="px-10">
+      <ParallaxLayer
+        offset={0.6}
+        factor={0.8}
+        speed={0.5}
+        className="px-10 py-20"
+      >
         <AboutSection />
         <ConsultationSection />
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={0.99}
+        offset={1}
         factor={1.4}
         speed={0.5}
         className="flex flex-col px-10"

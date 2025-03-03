@@ -5,19 +5,13 @@ import { IParallax } from "@react-spring/parallax";
 import Spinner from "../Spinner/Spinner";
 import ProfileMarqueAsync from "../ProfileMarque/ProfileMarque.async";
 import MarqueeLoader from "../ProfileMarque/MarqueeLoader";
-import PreviewSliderDesktopAsync from "../PreviewsSlider/PreviewSliderDesktop.async";
 import { typings } from "../../lib/typings";
+import { ContactForm } from "../ContactForm";
 
 interface StickyProfileProps {
   goTo: (num: number) => () => void;
   entity: IParallax;
 }
-
-const SliderFallback = (
-  <div className="mt-[3svh] flex justify-center items-center aspect-video max-[520px]:w-[84%] lg:max-h-[30svh] lg:!mr-0 w-full">
-    <Spinner className="w-8 h-8" />
-  </div>
-);
 
 export default function StickyProfile({ goTo, entity }: StickyProfileProps) {
   const { width } = useScreen();
@@ -47,10 +41,7 @@ export default function StickyProfile({ goTo, entity }: StickyProfileProps) {
         {typings.types}
       </p>
       <Navigation goTo={goTo} entity={entity} />
-
-      <Suspense fallback={SliderFallback}>
-        <PreviewSliderDesktopAsync />
-      </Suspense>
+      <ContactForm />
     </div>
   );
 }
